@@ -37,7 +37,7 @@ class Author(models.Model):
 class Book(models.Model):
     """Model representing a book (but not a specific copy of a book)."""
     title = models.CharField(max_length=200)
-    book_image = models.ImageField(upload_to='images/', null=True, blank=True)
+
 
     # Foreign Key used because book can only have one author, but authors can have multiple books
     author = models.ForeignKey('Author', on_delete=models.RESTRICT, null=True)
@@ -48,6 +48,7 @@ class Book(models.Model):
 
     # ManyToManyField used because genre can contain many books. Books can cover many genres.
     genre = models.ManyToManyField(Genre, help_text='Select a genre for this book')
+    book_image = models.ImageField(upload_to='images/', null=True, blank=True)
 
     def __str__(self):
         """String for representing the Model object."""

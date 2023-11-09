@@ -149,7 +149,7 @@ class BookCreate(CreateView):
 
 class BookUpdate(UpdateView):
     model = Book
-    fields = ['title', 'summary', 'isbn', 'genre', 'author', 'book_image',]
+    fields = ['title', 'summary', 'isbn', 'genre', 'author', 'book_image']
 
     def form_valid(self, form):
         post = form.save(commit=False)
